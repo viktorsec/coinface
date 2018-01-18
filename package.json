@@ -1,0 +1,24 @@
+{
+    "author": "hey@viktorsec.com",
+    "dependencies": {},
+    "keywords": [],
+    "name": "coinface",
+    "pebble": {
+        "displayName": "coinface",
+        "enableMultiJS": true,
+        "messageKeys": [],
+        "projectType": "rocky",
+        "resources": {
+            "media": []
+        },
+        "sdkVersion": "3",
+        "targetPlatforms": [
+            "basalt"
+        ],
+        "uuid": "57d8c0ec-5c20-41c7-9dc0-98ee823f2042",
+        "watchapp": {
+            "watchface": true
+        }
+    },
+    "version": "1.0.0"
+}
