@@ -10,7 +10,7 @@ rocky.on('draw', function(event) {
   var height = ctx.canvas.unobstructedHeight;
   ctx.fillStyle = 'white';
   ctx.textAlign = 'center';
-  ctx.fillText(d.toLocaleTimeString() + '                             1 BTC = $' + price, width/2, height/2, width);
+  ctx.fillText(                    d.toLocaleTimeString() + '                                                 1 BTC = $' + price, width/2, height/2, width);
 });
 
 rocky.on('message', function(event) {
