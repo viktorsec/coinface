@@ -10,12 +10,15 @@ rocky.on('draw', function(event) {
   var height = ctx.canvas.unobstructedHeight;
   ctx.fillStyle = 'white';
   ctx.textAlign = 'center';
-  ctx.fillText(                    d.toLocaleTimeString() + '                                                 1 BTC =  $' + price, width/2, height/2, width);
+  ctx.font = '28px bold Gothic';
+  ctx.fillText('== ' + d.getHours() + ':' + d.getMinutes() + ' ==', width/2, height/2 - 30, width)
+  ctx.font = '24px Gothic';
+  ctx.fillText('1 BTC = $' + price, width/2, height/2, width);
 });
 
 rocky.on('message', function(event) {
   console.log("rocky: received message:", JSON.stringify(event.data));
-  price = event.data.price;
+  price = Math.floor(event.data.price);
   rocky.requestDraw();
 });
 
