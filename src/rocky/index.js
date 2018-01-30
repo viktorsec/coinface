@@ -1,6 +1,13 @@
 var rocky = require('rocky');
 var price;
 
+function addLeadingZero(str) {
+  if (str.length === 1) {
+    return '0' + str;
+  }
+  return str;
+}
+
 rocky.on('draw', function(event) {
   console.log("data", price);
   var ctx = event.context;
@@ -11,7 +18,9 @@ rocky.on('draw', function(event) {
   ctx.fillStyle = 'white';
   ctx.textAlign = 'center';
   ctx.font = '28px bold Gothic';
-  ctx.fillText('== ' + d.getHours() + ':' + d.getMinutes() + ' ==', width/2, height/2 - 30, width)
+  var hours = addLeadingZero(d.getHours());
+  var minutes = addLeadingZero(d.getMinutes());
+  ctx.fillText('== ' + hours + ':' + minutes + ' ==', width/2, height/2 - 30, width);
   ctx.font = '24px Gothic';
   ctx.fillText('1 BTC = $' + price, width/2, height/2, width);
 });
@@ -23,6 +32,10 @@ rocky.on('message', function(event) {
 });
 
 rocky.on('minutechange', function(event) {
+  rocky.requestDraw();
+});
+
+rocky.on('hourchange', function(event) {
   console.log('requesting data');
   rocky.postMessage({'test': 'hello from smartwatch'});
 });
