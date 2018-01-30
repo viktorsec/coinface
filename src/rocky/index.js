@@ -18,8 +18,8 @@ rocky.on('draw', function(event) {
   ctx.fillStyle = 'white';
   ctx.textAlign = 'center';
   ctx.font = '28px bold Gothic';
-  var hours = addLeadingZero(d.getHours());
-  var minutes = addLeadingZero(d.getMinutes());
+  var hours = addLeadingZero(d.getHours().toString());
+  var minutes = addLeadingZero(d.getMinutes().toString());
   ctx.fillText('== ' + hours + ':' + minutes + ' ==', width/2, height/2 - 30, width);
   ctx.font = '24px Gothic';
   ctx.fillText('1 BTC = $' + price, width/2, height/2, width);
